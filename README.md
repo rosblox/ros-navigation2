@@ -2,7 +2,7 @@
 
 ROS2 Navigation Framework and System 
 
-Main repo: https://github.com/ros-planning/navigation2
+Main repo: https://github.com/ros-planning/navigation2  
 Documentation: https://navigation.ros.org/index.html
 
 
