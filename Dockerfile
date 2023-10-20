@@ -14,6 +14,7 @@ WORKDIR /colcon_ws
 
 COPY navigation2/nav2_behavior_tree src/navigation2/nav2_behavior_tree
 COPY slope_estimation_interfaces src/slope_estimation_interfaces
+COPY winch_control_interfaces src/winch_control_interfaces
 
 RUN rosdep init && rosdep update && \
     apt-get update && \
