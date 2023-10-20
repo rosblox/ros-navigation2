@@ -1,0 +1,16 @@
+
+# Constants
+string CALIBRATE="calibrate"
+string ROVER="rover"
+string SPHERE="sphere"
+string CIRCLE="circle"
+string UNKNOWN="unknown"
+
+# Request
+string to
+---
+# Result
+string shape
+---
+# Feedback
+float32 progress
