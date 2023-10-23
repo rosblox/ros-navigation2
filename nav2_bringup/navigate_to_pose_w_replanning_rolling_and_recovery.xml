@@ -5,7 +5,7 @@
 -->
 <root main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
-    <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+    <!-- <RecoveryNode number_of_retries="6" name="NavigateRecovery"> -->
       <PipelineSequence name="NavigateWithReplanning">
         <RateController hz="1.0">
           <RecoveryNode number_of_retries="1" name="ComputePathToPose">
@@ -15,38 +15,32 @@
         </RateController>
 
 
-
         <ReactiveSequence name="NavigateOrRoll">
 
-          <ReactiveFallback name="MorphAndRoll">
-            <Inverter> <CanRobotRoll/> </Inverter>
+          <!-- <ReactiveFallback name="Roll">
+
+            <Inverter> <CanRobotRoll server_timeout="10000"/> </Inverter>
+
             <Sequence>
-
-              <!-- <ReactiveFallback name="MorphIfRequired">
-                <IsRobotBall name="IsRobotBall"/>
-                <Morph to="Ball" />
-              </ReactiveFallback> -->
-
-              <Morph to="sphere" />
-              <!-- <Roll name="Roll" /> -->
-              <Wait wait_duration="50"/>
-
+              <Morph to="circle" server_timeout="10000" />
+              <Wait wait_duration="8" name="Rolling Down Until I stop." />
             </Sequence>
-          </ReactiveFallback>
 
-          <!-- <ReactiveFallback name="MorphIfRequired">
-            <Inverter> <IsRobotBall name="IsRobotBall"/> </Inverter>
-            <Morph to="Rover" />
           </ReactiveFallback> -->
 
-          <Morph to="rover" />
-          <FollowPath path="{path}" controller_id="FollowPath"/>
+          <Morph to="circle" server_timeout="10000" />
+
+          <Wait wait_duration="60" name="Following path." />
+
+          
+          <!-- <FollowPath path="{path}" controller_id="FollowPath"/> -->
 
         </ReactiveSequence>
 
 
       </PipelineSequence>
-      <ReactiveFallback name="RecoveryFallback">
+
+      <!-- <ReactiveFallback name="RecoveryFallback">
         <GoalUpdated/>
         <RoundRobin name="RecoveryActions">
           <Sequence name="ClearingActions">
@@ -58,6 +52,6 @@
           <BackUp backup_dist="0.30" backup_speed="0.05"/>
         </RoundRobin>
       </ReactiveFallback>
-    </RecoveryNode>
+    </RecoveryNode> -->
   </BehaviorTree>
 </root>
