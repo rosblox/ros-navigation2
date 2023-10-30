@@ -71,30 +71,6 @@ def generate_launch_description():
                           'use_composition': 'True'}.items(),
     )
 
-    # pkg_nav2_bringup = get_package_share_directory('nav2_bringup')
-
-    # navigation_include = GroupAction(
-    #     actions=[
-    #         SetRemap(src='/cmd_vel', dst='/diff_drive_controller/cmd_vel_unstamped'),
-
-    #         Node(
-    #             name='nav2_container',
-    #             package='rclcpp_components',
-    #             executable='component_container_isolated',
-    #             parameters=[configured_params, {'autostart': True}],
-    #             output='screen'),
-
-
-    #         IncludeLaunchDescription(
-    #             PythonLaunchDescriptionSource(pkg_nav2_bringup + '/launch/navigation_launch.py'),
-    #             launch_arguments = {
-    #                 'params_file': [configured_params],
-    #                 'use_composition': 'True'
-    #             }.items(),
-    #         )
-    #     ]
-    # )
-
     return LaunchDescription(
         [
             map_server_node,
