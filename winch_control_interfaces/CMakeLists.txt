@@ -11,6 +11,7 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "action/Morph.action"
   "srv/SetFloat32.srv"
+  "srv/GetFloat32.srv"
 )
 
 ament_package()
