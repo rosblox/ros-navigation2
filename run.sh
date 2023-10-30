@@ -6,7 +6,6 @@ docker run -it --rm \
 --network=host \
 --env ROS_DOMAIN_ID=23 \
 --volume ./navigation2/nav2_behavior_tree:/colcon_ws/src/navigation2/nav2_behavior_tree \
---volume ./slope_estimation_interfaces:/colcon_ws/src/slope_estimation_interfaces \
 --volume ./winch_control_interfaces:/colcon_ws/src/winch_control_interfaces \
 --volume ./nav2_bringup/nav2_bringup_launch.py:/opt/ros/humble/share/nav2_bringup/launch/nav2_bringup_launch.py \
 --volume ./nav2_bringup/nav2_params.yaml:/opt/ros/humble/share/nav2_bringup/params/nav2_params.yaml \
